@@ -74,7 +74,7 @@ export default function Landing({ onStart }: { onStart: () => void }) {
             label="Avalon"
             duration={3.2}
             tilt={4}
-            zoom={1.2}
+            zoom={1.0}
             ringClass="ring-taxi/80"
           />
           <FloatingFace
@@ -84,6 +84,9 @@ export default function Landing({ onStart }: { onStart: () => void }) {
             delay={0.7}
             duration={4.1}
             tilt={-5}
+            // Cutout sits small inside wide transparent margins.
+            zoom={1.7}
+            offsetY={2}
             ringClass="ring-bubblegum/80"
           />
         </motion.div>
