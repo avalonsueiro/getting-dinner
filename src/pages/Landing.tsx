@@ -85,8 +85,7 @@ export default function Landing({ onStart }: { onStart: () => void }) {
             duration={4.1}
             tilt={-5}
             // Cutout sits small inside wide transparent margins.
-            zoom={1.7}
-            offsetY={2}
+            zoom={1.45}
             ringClass="ring-bubblegum/80"
           />
         </motion.div>
