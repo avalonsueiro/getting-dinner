@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Fredoka', ui-rounded, 'SF Pro Rounded', system-ui, sans-serif;
+  --font-body: 'Nunito', ui-rounded, system-ui, sans-serif;
+
+  --color-dusk-900: #10142c;
+  --color-dusk-700: #2a1e52;
+  --color-dusk-500: #6b3b7a;
+  --color-sunset-400: #ff8a5c;
+  --color-sunset-300: #ffb26b;
+  --color-taxi: #ffc93c;
+  --color-bubblegum: #ff5f8f;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-dusk-900);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+/* Keep the whole app inside the phone viewport, including iOS safe areas. */
+#root {
+  min-height: 100dvh;
+}
+
+@utility tap-safe {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
