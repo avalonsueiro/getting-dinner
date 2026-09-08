@@ -1,3 +1,4 @@
+import { PRICE_CEILING } from './score'
 import type { ThisOrThatAnswers } from '../types'
 
 export interface RoundOption {
@@ -41,8 +42,8 @@ export const ROUNDS: Round[] = [
     key: 'side',
     question: 'Where should it be?',
     options: [
-      { value: 'avalon', label: 'Closer to Avalon', emoji: '🚂', blurb: 'Toward Grand Central' },
-      { value: 'alex', label: 'Closer to Alex', emoji: '🌳', blurb: 'Toward Stuy Town' },
+      { value: 'avalon', label: 'Closer to Avalon', emoji: '🌳', blurb: 'Toward Stuy Town' },
+      { value: 'alex', label: 'Closer to Alex', emoji: '🚂', blurb: 'Toward Grand Central' },
     ],
     middle: { value: 'center', label: 'Dead center', emoji: '⚖️', blurb: 'Equal walk from both' },
   },
@@ -84,12 +85,18 @@ export const ROUNDS: Round[] = [
   },
 ]
 
-export const PRICE_OPTIONS = [
+const ALL_PRICE_OPTIONS = [
   { value: 1, label: '$', blurb: 'Inexpensive' },
   { value: 2, label: '$$', blurb: 'Moderate' },
   { value: 3, label: '$$$', blurb: 'Expensive' },
   { value: 4, label: '$$$$', blurb: 'Very expensive' },
 ]
+
+/**
+ * Only tiers at or below the ceiling are offered. Raising PRICE_CEILING in
+ * score.ts brings the pricier options back into the quiz automatically.
+ */
+export const PRICE_OPTIONS = ALL_PRICE_OPTIONS.filter((p) => p.value <= PRICE_CEILING)
 
 export const CUISINE_EMOJI: Record<string, string> = {
   Italian: '🍝',

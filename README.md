@@ -106,9 +106,9 @@ commit the result whenever you want fresher data.
 a few human-readable reasons; `pickRestaurants` applies the hard filters and
 returns the top 3.
 
-**Hard filters** — selected price levels, selected cuisines (unless "Surprise
-us"), nothing matching the avoid text, and open at 7pm today when hours are
-known. If fewer than three places survive, the cuisine filter is dropped, then
+**Hard filters** — the `PRICE_CEILING`, selected price levels, selected cuisines
+(unless "Surprise us"), nothing matching the avoid text, and open at 7pm today
+when hours are known. If fewer than three places survive, the cuisine filter is dropped, then
 price, so you always get a suggestion; the result page says when that happened.
 
 **Soft scores** — all weights live in the `WEIGHTS` object at the top of the
@@ -148,6 +148,10 @@ estimates. `fairness` is the absolute difference between the two walk times.
   Each has a `zoom` (and optional `offsetY`) prop in `src/pages/Landing.tsx` so a
   cutout with wide margins and a tight portrait can be made to read at the same
   size.
-- Who lives where is set in two places, if it ever needs swapping: the `side`
-  round in `src/lib/quiz.ts` and the `picks.side` branch in `src/lib/score.ts`.
-  Avalon is currently mapped to Grand Central and Alex to Stuy Town.
+- Avalon lives in Stuy Town, Alex is up by Grand Central. If that ever needs
+  swapping it's two places: the `side` round in `src/lib/quiz.ts` and the
+  `picks.side` branch in `src/lib/score.ts`.
+- `PRICE_CEILING` in `src/lib/score.ts` caps how expensive a recommendation can
+  be (currently 2, i.e. `$$`). It drives both the options shown in the quiz and
+  a hard filter that holds even when the price question is skipped. Raise it to
+  4 to put the pricier tiers back.

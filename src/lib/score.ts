@@ -1,6 +1,13 @@
 import type { Answers, Restaurant } from '../types'
 
 /**
+ * Highest Google price_level the app will ever recommend. This is a floor-level
+ * rule, not a preference: it applies even when the price question is skipped,
+ * and it survives the relaxation pass below.
+ */
+export const PRICE_CEILING = 2
+
+/**
  * Everything about how a restaurant is judged lives in these two blocks — tune
  * here rather than in the scoring functions below.
  */
@@ -84,6 +91,10 @@ export function avoidTokens(avoid: string): string[] {
 }
 
 function passesHardFilters(r: Restaurant, a: Answers, now: Date): boolean {
+  // Never recommend above the ceiling, whatever the answers say.
+  if (r.price_level !== null && r.price_level > PRICE_CEILING) {
+    return false
+  }
   if (a.prices.length && r.price_level !== null && !a.prices.includes(r.price_level)) {
     return false
   }
@@ -126,17 +137,18 @@ export function scoreRestaurant(
   add(WEIGHTS.reviews, reviewScore)
 
   // Geography: either split the difference or lean toward one home.
+  // Avalon lives in Stuy Town; Alex is up by Grand Central.
   if (picks.side === 'avalon') {
-    add(
-      WEIGHTS.proximityBias,
-      1 - restaurant.walk_minutes_from_grand_central / 25,
-      `${restaurant.walk_minutes_from_grand_central} min walk from Grand Central`,
-    )
-  } else if (picks.side === 'alex') {
     add(
       WEIGHTS.proximityBias,
       1 - restaurant.walk_minutes_from_stuytown / 25,
       `${restaurant.walk_minutes_from_stuytown} min walk from Stuy Town`,
+    )
+  } else if (picks.side === 'alex') {
+    add(
+      WEIGHTS.proximityBias,
+      1 - restaurant.walk_minutes_from_grand_central / 25,
+      `${restaurant.walk_minutes_from_grand_central} min walk from Grand Central`,
     )
   } else {
     add(WEIGHTS.fairness, 1 - restaurant.fairness / 12, 'Nearly equal walk from both')
