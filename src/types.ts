@@ -45,7 +45,7 @@ export interface Restaurant {
   open_periods: OpenPeriod[] | null
   walk_minutes_from_grand_central: number
   walk_minutes_from_stuytown: number
-  /** |walk from GCT − walk from Stuy Town|. Lower is fairer. */
+  /** |walk from GCT − walk from Stuytown|. Lower is fairer. */
   fairness: number
   /** Raw Google types, used for keyword scoring. */
   types: string[]

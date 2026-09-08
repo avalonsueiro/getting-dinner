@@ -42,7 +42,7 @@ export const ROUNDS: Round[] = [
     key: 'side',
     question: 'Where should it be?',
     options: [
-      { value: 'avalon', label: 'Closer to Avalon', emoji: '🌳', blurb: 'Toward Stuy Town' },
+      { value: 'avalon', label: 'Closer to Avalon', emoji: '🌳', blurb: 'Toward Stuytown' },
       { value: 'alex', label: 'Closer to Alex', emoji: '🚂', blurb: 'Toward Grand Central' },
     ],
     middle: { value: 'center', label: 'Dead center', emoji: '⚖️', blurb: 'Equal walk from both' },

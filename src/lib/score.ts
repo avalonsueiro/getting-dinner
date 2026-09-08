@@ -137,12 +137,12 @@ export function scoreRestaurant(
   add(WEIGHTS.reviews, reviewScore)
 
   // Geography: either split the difference or lean toward one home.
-  // Avalon lives in Stuy Town; Alex is up by Grand Central.
+  // Avalon lives in Stuytown; Alex is up by Grand Central.
   if (picks.side === 'avalon') {
     add(
       WEIGHTS.proximityBias,
       1 - restaurant.walk_minutes_from_stuytown / 25,
-      `${restaurant.walk_minutes_from_stuytown} min walk from Stuy Town`,
+      `${restaurant.walk_minutes_from_stuytown} min walk from Stuytown`,
     )
   } else if (picks.side === 'alex') {
     add(

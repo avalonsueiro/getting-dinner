@@ -128,7 +128,7 @@ wins most of the time; tune `WEIGHTS.jitter` to taste.
 
 ### Geography
 
-Grand Central (40.7527, −73.9772) and Stuy Town (40.7317, −73.9778), midpoint
+Grand Central (40.7527, −73.9772) and Stuytown (40.7317, −73.9778), midpoint
 around Kips Bay / Rose Hill. Walk times are straight-line distance at 80 m/min —
 close enough for Manhattan, but they ignore the street grid, so treat them as
 estimates. `fairness` is the absolute difference between the two walk times.
@@ -148,7 +148,7 @@ estimates. `fairness` is the absolute difference between the two walk times.
   Each has a `zoom` (and optional `offsetY`) prop in `src/pages/Landing.tsx` so a
   cutout with wide margins and a tight portrait can be made to read at the same
   size.
-- Avalon lives in Stuy Town, Alex is up by Grand Central. If that ever needs
+- Avalon lives in Stuytown, Alex is up by Grand Central. If that ever needs
   swapping it's two places: the `side` round in `src/lib/quiz.ts` and the
   `picks.side` branch in `src/lib/score.ts`.
 - `PRICE_CEILING` in `src/lib/score.ts` caps how expensive a recommendation can

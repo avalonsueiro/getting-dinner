@@ -1,7 +1,7 @@
 /**
  * Hand-written fallback list, used when GOOGLE_PLACES_API_KEY is missing.
  *
- * These are all real restaurants inside the Grand Central → Stuy Town corridor.
+ * These are all real restaurants inside the Grand Central → Stuytown corridor.
  * Coordinates are approximate (block-level) and the ratings / review counts are
  * ballpark figures typed by hand, NOT live Google data — run
  * `npm run fetch-restaurants` with an API key to replace them with the real thing.

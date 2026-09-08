@@ -157,7 +157,7 @@ function WinnerCard({ scored }: { scored: ScoredRestaurant }) {
 
         <div className="mt-4 flex gap-2.5">
           <WalkPill label="walk from Grand Central" minutes={r.walk_minutes_from_grand_central} />
-          <WalkPill label="walk from Stuy Town" minutes={r.walk_minutes_from_stuytown} />
+          <WalkPill label="walk from Stuytown" minutes={r.walk_minutes_from_stuytown} />
         </div>
 
         <motion.a

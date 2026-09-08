@@ -2,7 +2,7 @@
  * Builds src/data/restaurants.json.
  *
  * With GOOGLE_PLACES_API_KEY in .env it queries the Google Places API across the
- * Grand Central → Stuy Town corridor, dedupes by place_id, filters, and writes
+ * Grand Central → Stuytown corridor, dedupes by place_id, filters, and writes
  * real data. Without a key it falls back to the hand-written seed list so the app
  * still works. The key never leaves this script — the client only ever sees the
  * generated JSON.
